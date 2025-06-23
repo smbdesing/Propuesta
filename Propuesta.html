@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chosen Palette: Dynamic & Professional - Background: #FDFBF7, Text: #222222, Accent 1: #CC0000, Accent 2: #FF8C00, Accent 3: #FFD700 -->
+    <!-- Application Structure Plan: The SPA is designed as a single-page narrative proposal. The user scrolls through a logical flow: 1. Introduction (Hook), 2. The Problem (Challenge), 3. Our Solution (The Plan's details), 4. The Impact (Interactive Charts showing ROI), 5. The Investment (Clear Price), 6. Call to Action with Email Confirmation. This linear, story-driven structure is optimal for a sales proposal, guiding the client from understanding their need to seeing our solution's value and how to proceed, maximizing clarity and persuasion. The email confirmation mechanism uses a third-party service (Formspree) as direct client-side email sending is not possible. -->
+    <!-- Visualization & Content Choices: 
+    - Report Info: Plan details (2 videos/wk, quality). Goal: Inform. Viz: Card-based layout with Unicode icons (🎥, 🗓️, 📈). Method: HTML/CSS. Justification: Clearly segments the offerings for easy reading.
+    - Report Info: Creative Process. Goal: Organize. Viz: Horizontal flowchart. Method: HTML/CSS (Flexbox). Justification: Shows the workflow simply without complex graphics.
+    - Report Info: Investment vs. Value. Goal: Inform/Compare. Viz: Donut Chart. Library: Chart.js. Justification: Effectively shows the value breakdown of the $180 investment.
+    - Report Info: Expected Benefits. Goal: Compare/Change. Viz: Bar Chart (Before vs. After). Library: Chart.js. Justification: Provides a clear, powerful visual of the projected ROI.
+    - Report Info: Call to Action with Confirmation. Goal: Engage/Convert. Viz: Interactive form with submit button and success message. Method: HTML/CSS/JavaScript with Formspree integration. Justification: Enables direct action and confirmation to the creator upon client engagement.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <title>Propuesta Interactiva para Pollos La Franquicia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FDFBF7;
+            color: #222222;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif; /* Changed to Poppins */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .accent-bg {
+            background-color: #CC0000;
+        }
+        .accent-text {
+            color: #CC0000;
+        }
+        .secondary-accent-bg {
+            background-color: #FF8C00;
+        }
+        .secondary-accent-text {
+            color: #FF8C00;
+        }
+        .tertiary-accent-bg {
+            background-color: #FFD700;
+        }
+        .tertiary-accent-text {
+            color: #FFD700;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(204, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <header class="text-center py-20 md:py-32">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Elevando la historia de <span class="accent-text">Pollos La Franquicia</span>.</h1>
+            <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-600">Una propuesta de contenido digital para conectar, cautivar y crecer a través del video.</p>
+        </header>
+
+        <main class="space-y-24 md:space-y-32 mb-20">
+
+            <section id="opportunity">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold">El Desafío en el Mundo Digital</h2>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Tener un producto excepcional es el primer paso. El siguiente es comunicarlo. En un mercado donde el 91% de los consumidores quiere ver más contenido de video de las marcas, la oportunidad es clara: transformar su sabor único en una experiencia visual inolvidable.</p>
+                </div>
+            </section>
+
+            <section id="solution">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">La Solución: El Plan "Sabor Viral"</h2>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Un plan estratégico diseñado para construir una presencia digital sólida y atractiva.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card p-8 rounded-lg text-center transition-transform transform hover:-translate-y-2">
+                        <div class="text-5xl mb-4">🎥</div>
+                        <h3 class="text-xl font-bold mb-2">Producción de Alta Calidad</h3>
+                        <p class="text-gray-600">2 videos semanales con calidad de video y audio profesional, optimizados para las plataformas clave como TikTok, Instagram Reels y Shorts.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg text-center transition-transform transform hover:-translate-y-2">
+                        <div class="text-5xl mb-4">💡</div>
+                        <h3 class="text-xl font-bold mb-2">Contenido con Propósito</h3>
+                        <p class="text-gray-600">Desarrollamos conceptos creativos que cuentan una historia, desde el detrás de cámaras hasta testimonios de clientes y retos virales.</p>
+                    </div>
+                    <div class="card p-8 rounded-lg text-center transition-transform transform hover:-translate-y-2">
+                        <div class="text-5xl mb-4">🎯</div>
+                        <h3 class="text-xl font-bold mb-2">Estrategia de Conversión</h3>
+                        <p class="text-gray-600">Cada video incluye una llamada a la acción clara para invitar a los espectadores a visitar, pedir o interactuar con su marca.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="process">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Nuestro Proceso Creativo</h2>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Un flujo de trabajo transparente y colaborativo para garantizar resultados excepcionales.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="text-center flex-1">
+                        <div class="secondary-accent-bg w-16 h-16 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-2">1</div>
+                        <h4 class="font-bold">Estrategia</h4>
+                        <p class="text-sm text-gray-600">Definimos objetivos y conceptos.</p>
+                    </div>
+                     <div class="text-gray-300 text-2xl hidden md:block">→</div>
+                    <div class="text-center flex-1">
+                        <div class="secondary-accent-bg w-16 h-16 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-2">2</div>
+                        <h4 class="font-bold">Producción</h4>
+                        <p class="text-sm text-gray-600">Grabamos el contenido.</p>
+                    </div>
+                     <div class="text-gray-300 text-2xl hidden md:block">→</div>
+                    <div class="text-center flex-1">
+                        <div class="secondary-accent-bg w-16 h-16 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-2">3</div>
+                        <h4 class="font-bold">Post-Producción</h4>
+                        <p class="text-sm text-gray-600">Editamos y perfeccionamos.</p>
+                    </div>
+                    <div class="text-gray-300 text-2xl hidden md:block">→</div>
+                    <div class="text-center flex-1">
+                        <div class="accent-bg w-16 h-16 rounded-full mx-auto flex items-center justify-center text-2xl font-bold text-white mb-2">4</div>
+                        <h4 class="font-bold">Lanzamiento</h4>
+                        <p class="text-sm text-gray-600">Publicamos y analizamos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="impact">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Visualizando el Impacto</h2>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto text-gray-600">Una inversión inteligente se traduce en un crecimiento medible. Aquí mostramos cómo su marca puede evolucionar.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="card p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-center mb-4">Distribución del Valor</h3>
+                        <p class="text-center text-gray-600 mb-6">Cada dólar invertido se distribuye eficientemente entre la creación de contenido de alta calidad y la estrategia que lo impulsa, asegurando el máximo retorno.</p>
+                        <div class="chart-container">
+                            <canvas id="investmentChart"></canvas>
+                        </div>
+                    </div>
+                     <div class="card p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-center mb-4">Crecimiento Proyectado</h3>
+                        <p class="text-center text-gray-600 mb-6">Este no es solo un plan de contenido; es un plan de crecimiento. Proyectamos un aumento significativo en las métricas clave para su negocio.</p>
+                        <div class="chart-container">
+                            <canvas id="growthChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="investment">
+                <div class="accent-bg bg-opacity-20 rounded-lg p-10 md:p-16 text-center">
+                     <h2 class="text-3xl md:text-4xl font-bold">Una Inversión Clara y Accesible</h2>
+                     <p class="mt-4 text-lg max-w-3xl mx-auto secondary-accent-text">Todo el paquete de creación de contenido estratégico y de alta calidad por una inversión mensual de:</p>
+                     <p class="text-6xl md:text-7xl font-bold text-[#222222] my-4">$180 <span class="text-3xl secondary-accent-text font-medium">USD</span></p>
+                     <p class="secondary-accent-text">Una catapulta para el crecimiento y reconocimiento de su marca.</p>
+                </div>
+            </section>
+
+            <footer class="text-center py-16">
+                 <h2 class="text-3xl md:text-4xl font-bold">¿Listos para contar su historia?</h2>
+                 <p class="mt-4 text-lg max-w-2xl mx-auto text-gray-600">Estoy aquí para ayudar a que "Pollos La Franquicia" no solo sea una referencia en el paladar, sino también en las pantallas de miles de personas. Conversemos.</p>
+                 
+                 <form id="contactForm" action="https://formspree.io/f/xdkzwdqg" method="POST" class="mt-8 max-w-sm mx-auto">
+                    <input type="hidden" name="_subject" value="Confirmación de Propuesta Pollos La Franquicia - Interés Cliente">
+                    <input type="email" name="email" placeholder="Tu correo electrónico" required class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#CC0000] mb-4 text-gray-800">
+                    <button type="submit" class="accent-bg text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 w-full">
+                        ¡Empecemos a trabajar!
+                    </button>
+                    <p id="formStatus" class="mt-4 text-sm font-medium text-gray-700"></p>
+                 </form>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script>
+        const chartTooltipOptions = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    }
+                    return label;
+                }
+            },
+            backgroundColor: '#222222',
+            titleColor: '#FFFFFF',
+            bodyColor: '#FFFFFF',
+            padding: 12,
+            cornerRadius: 4,
+            titleFont: { family: 'Poppins', weight: 'bold' }, /* Changed to Poppins */
+            bodyFont: { family: 'Poppins' } /* Changed to Poppins */
+        };
+
+        const chartLegendOptions = {
+            labels: {
+                color: '#222222',
+                font: {
+                    family: 'Poppins', /* Changed to Poppins */
+                    size: 14
+                }
+            }
+        };
+
+        const investmentCtx = document.getElementById('investmentChart').getContext('2d');
+        new Chart(investmentCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Producción y Edición', 'Estrategia y Creatividad', 'Optimización y Formatos'],
+                datasets: [{
+                    data: [100, 50, 30],
+                    backgroundColor: ['#CC0000', '#FF8C00', '#FFD700'],
+                    borderColor: '#FDFBF7',
+                    borderWidth: 5,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        ...chartLegendOptions
+                    },
+                    tooltip: chartTooltipOptions
+                }
+            }
+        });
+
+        const growthCtx = document.getElementById('growthChart').getContext('2d');
+        new Chart(growthCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Alcance Semanal', 'Interacción de la Audiencia', 'Nuevos Clientes Potenciales'],
+                datasets: [{
+                    label: 'Situación Actual',
+                    data: [1500, 200, 50],
+                    backgroundColor: '#FF8C00',
+                    borderRadius: 4
+                }, {
+                    label: 'Proyección con "Sabor Viral"',
+                    data: [8000, 1200, 250],
+                    backgroundColor: '#CC0000',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)'
+                        },
+                        ticks: { color: '#666' }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: { color: '#666' }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        ...chartLegendOptions
+                    },
+                    tooltip: chartTooltipOptions
+                }
+            }
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                formStatus.textContent = '¡Gracias! Hemos recibido tu interés y nos pondremos en contacto pronto.';
+                formStatus.style.color = '#CC0000'; 
+                contactForm.reset();
+            } else {
+                const data = await response.json();
+                if (Object.hasOwnProperty.call(data, 'errors')) {
+                    formStatus.textContent = 'Error: ' + data["errors"].map(error => error["message"]).join(", ");
+                } else {
+                    formStatus.textContent = 'Hubo un problema al enviar tu mensaje. Por favor, intenta de nuevo.';
+                }
+                formStatus.style.color = '#FF8C00'; 
+            }
+        });
+    </script>
+
+</body>
+</html>
